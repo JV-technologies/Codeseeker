@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "551165294511",
+    "firebase_url": "https://jvt-cred-f85fd.firebaseio.com",
+    "project_id": "jvt-cred-f85fd",
+    "storage_bucket": "jvt-cred-f85fd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:551165294511:android:77dc236ba70c48fa6aa15a",
+        "android_client_info": {
+          "package_name": "com.example.jvtcred"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "551165294511-dj74qnceguuvh03aqar0dernsrdoened.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.jvtcred",
+            "certificate_hash": "b63cacc6dbfb354f3e9298be6ccf5bc735f2f66a"
+          }
+        },
+        {
+          "client_id": "551165294511-idbj8d10lcb53r4og07hdf2pp9fspgvc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDu1JDvXj0zRvRiX9ujkestnGMLB-n4YSA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "551165294511-idbj8d10lcb53r4og07hdf2pp9fspgvc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

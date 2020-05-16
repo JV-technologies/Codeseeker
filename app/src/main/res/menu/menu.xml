@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/borrow"
+        android:title="Courses"
+        android:icon="@drawable/ic_book_hollow" />
+
+
+
+
+    <item android:id="@+id/repay"
+        android:title="Repay"
+        android:icon="@drawable/ic_time_hollow"/>
+
+
+
+    <item android:id="@+id/account"
+        android:title="Account"
+        android:icon="@drawable/ic_account_circle_black_24dp"/>
+
+
+</menu>
