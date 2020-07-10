@@ -19,7 +19,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="@color/orange"
+            android:background="@color/white"
             app:popupTheme="@style/AppTheme.PopupOverlay" />
 
     </com.google.android.material.appbar.AppBarLayout>
@@ -30,6 +30,7 @@
         android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@+id/include"
         app:layout_constraintEnd_toEndOf="parent"
+        android:background="@color/silver"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/appBarLayout" />
 
@@ -86,7 +87,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:backgroundTint="#F50505"
+            android:backgroundTint="@color/lightgreen"
             android:text="continue"
             android:textColor="#ffffff"
             android:textSize="16sp"
@@ -162,7 +163,7 @@
             app:layout_constraintTop_toBottomOf="@+id/linearLayout5" />
 
         <TextView
-            android:id="@+id/textView23"
+            android:id="@+id/your_recent_orders_titles"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -193,7 +194,7 @@
             app:layout_constraintBottom_toTopOf="@+id/textView25"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView23" />
+            app:layout_constraintTop_toBottomOf="@+id/your_recent_orders_titles" />
 
         <TextView
             android:id="@+id/textView25"

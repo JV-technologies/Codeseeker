@@ -2,6 +2,7 @@ package com.example.jvtcred;
 
 
 import android.content.Context;
+import android.graphics.Color;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
@@ -70,6 +71,10 @@ public class HomeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        getActivity().getWindow().setStatusBarColor(this.getResources().getColor(R.color.white));
+
+
         // Inflate the layout for this fragment
         final View view = inflater.inflate(R.layout.fragment_home2, container, false);
         swipeRefreshLayout = view.findViewById(R.id.refresh_layout);

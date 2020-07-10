@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:elevation="3dp"
-    android:background="@color/white"
-    android:layout_marginBottom="4dp"
-    android:layout_marginTop="4dp"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="match_parent"
+    android:layout_marginTop="4dp"
+    android:layout_marginBottom="4dp"
+    android:background="@color/white"
+    android:elevation="3dp">
 
 
     <ImageView
@@ -24,11 +23,13 @@
         android:id="@+id/product_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textStyle="bold"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:text="java language"
+        android:fontFamily="sans-serif-smallcaps"
         android:textColor="#000000"
-        android:textSize="16sp"
+        android:textSize="18dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -55,10 +56,10 @@
         android:layout_marginTop="35dp"
         android:layout_marginEnd="63dp"
         android:background="@drawable/border_background"
-        android:backgroundTint="#000000"
+        android:backgroundTint="#ffffff"
         android:padding="3dp"
         android:text="Qty: 1"
-        android:textColor="#000000"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toStartOf="@+id/product_image"
         app:layout_constraintStart_toEndOf="@+id/product_price"
         app:layout_constraintTop_toTopOf="parent" />
@@ -94,8 +95,8 @@
         android:layout_marginTop="8dp"
         android:progress="0"
 
-        android:progressTint="@color/green"
         android:progressBackgroundTint="#d6d6d6"
+        android:progressTint="@color/green"
         android:rotation="90"
         android:transformPivotX="0dp"
         app:layout_constraintStart_toStartOf="@+id/ordered_indicator"
@@ -159,6 +160,7 @@
         android:layout_height="14dp"
         android:layout_marginStart="8dp"
         android:text="Course Confirmed"
+        android:fontFamily="sans-serif-smallcaps"
         android:textColor="#000000"
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="@+id/ordered_indicator"
@@ -173,6 +175,7 @@
         android:text="java language"
         android:textColor="#000000"
         android:textSize="12sp"
+        android:fontFamily="sans-serif-smallcaps"
         app:layout_constraintBottom_toBottomOf="@+id/packed_indicator"
         app:layout_constraintStart_toStartOf="@+id/packed_shipping_progress"
         app:layout_constraintTop_toTopOf="@+id/packed_indicator" />
@@ -184,6 +187,7 @@
         android:layout_marginStart="8dp"
         android:text="Number of days"
         android:textColor="#000000"
+        android:fontFamily="sans-serif-smallcaps"
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="@+id/shipping_indicator"
         app:layout_constraintStart_toEndOf="@+id/shipping_indicator"
@@ -199,6 +203,7 @@
         android:textColor="#000000"
         android:textSize="10sp"
         app:layout_constraintBottom_toBottomOf="@+id/delivered_indicator"
+        android:fontFamily="sans-serif-smallcaps"
         app:layout_constraintStart_toEndOf="@+id/delivered_indicator"
         app:layout_constraintTop_toTopOf="@+id/delivered_indicator" />
 
@@ -210,6 +215,7 @@
         android:text="your language has been selected"
         android:textColor="#000000"
         android:textSize="10sp"
+        android:fontFamily="sans-serif-smallcaps"
         app:layout_constraintStart_toStartOf="@+id/ordered_title"
         app:layout_constraintTop_toBottomOf="@+id/ordered_title" />
 
@@ -232,6 +238,7 @@
         android:layout_marginTop="8dp"
         android:text="your java language has been selected"
         android:textColor="#000000"
+        android:fontFamily="sans-serif-smallcaps"
         android:textSize="10sp"
         app:layout_constraintStart_toStartOf="@+id/packed_title"
         app:layout_constraintTop_toBottomOf="@+id/packed_title" />
@@ -255,6 +262,7 @@
         android:layout_marginTop="8dp"
         android:text="your java language has been selected"
         android:textColor="#000000"
+        android:fontFamily="sans-serif-smallcaps"
         android:textSize="10sp"
         app:layout_constraintStart_toStartOf="@+id/shipping_title"
         app:layout_constraintTop_toBottomOf="@+id/shipping_title" />
@@ -280,6 +288,7 @@
         android:textColor="#000000"
         android:textSize="10sp"
         app:layout_constraintStart_toStartOf="@+id/delivered_title"
+        android:fontFamily="sans-serif-smallcaps"
         app:layout_constraintTop_toBottomOf="@+id/delivered_title" />
 
     <ImageView
@@ -311,6 +320,7 @@
         android:text="your ratings"
         android:textColor="#000000"
         android:textSize="12sp"
+        android:fontFamily="sans-serif-smallcaps"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/divider2" />
@@ -388,4 +398,19 @@
         app:layout_constraintBottom_toBottomOf="@+id/ordered_title"
         app:layout_constraintStart_toEndOf="@+id/ordered_title"
         app:layout_constraintTop_toTopOf="@+id/ordered_title" />
+
+    <Button
+        android:id="@+id/cancel_btn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Cancel course"
+        android:textAllCaps="false"
+        android:backgroundTint="@color/headings"
+        android:textColor="@color/white"
+        android:stateListAnimator="@null"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rate_now_container" />
 </androidx.constraintlayout.widget.ConstraintLayout>

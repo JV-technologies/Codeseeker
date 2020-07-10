@@ -11,6 +11,5 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/my_wishlist_recyclerview"
         android:layout_width="match_parent"
-        android:background="#d6d6d6"
         android:layout_height="match_parent" />
 </FrameLayout>

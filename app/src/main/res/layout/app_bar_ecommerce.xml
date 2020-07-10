@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/backroad"
     tools:context=".Ecommerce">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -15,16 +16,17 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="@color/orange"
-            android:backgroundTint="@color/orange"
+            android:background="@drawable/candybar"
+            android:backgroundTint="@color/white"
             app:layout_scrollFlags="scroll|enterAlways|snap"
-            app:popupTheme="@style/AppTheme.PopupOverlay" >
+            app:popupTheme="@style/AppTheme.PopupOverlay">
+
             <ImageView
                 android:id="@+id/actionbar_logo"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
-                android:src="@drawable/nameis"
-                android:adjustViewBounds="true"/>
+                android:adjustViewBounds="true"
+                android:src="@drawable/diksha" />
 
         </androidx.appcompat.widget.Toolbar>
 

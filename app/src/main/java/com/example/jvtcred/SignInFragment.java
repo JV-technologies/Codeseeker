@@ -63,7 +63,9 @@ public class SignInFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-       View view = inflater.inflate(R.layout.fragment_sign_in, container, false);
+        getActivity().getWindow().setStatusBarColor(this.getResources().getColor(R.color.white));
+
+        View view = inflater.inflate(R.layout.fragment_sign_in, container, false);
        dontHaveAnAccout = view.findViewById(R.id.tv_dont_have_an_account);
        parentFrameLayout = getActivity().findViewById(R.id.register_framelayout);
        email = view.findViewById(R.id.sign_in_email);
@@ -167,17 +169,17 @@ public class SignInFragment extends Fragment {
     private void checkInputs() {
         if(!TextUtils.isEmpty(email.getText())){
             if(TextUtils.isEmpty(password.getText())){
-                signInBtn.setEnabled(true);
+                signInBtn.setEnabled(false);
                 signInBtn.setTextColor(Color.rgb(255,255,255));
 
             }else{
-                signInBtn.setEnabled(false);
+                signInBtn.setEnabled(true);
                 signInBtn.setTextColor(Color.argb(50,255,255,255));
 
             }
 
         }else{
-            signInBtn.setEnabled(false);
+            signInBtn.setEnabled(true);
             signInBtn.setTextColor(Color.argb(50,255,255,255));
 
         }

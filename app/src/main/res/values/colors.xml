@@ -12,7 +12,10 @@
     <color name = "gradStart">#63C9EF</color>
     <color name = "orange">#FFA500</color>
     <color name = "followingBg">#49BEFF</color>
-    <color name = "gray">#E5E5E5</color>
+    <color name = "gray">#c8c8c8</color>
+    <color name = "navy">#0000FF</color>
+    <color name = "purple">#8A2BE2</color>
+
 
     <color name = "baby">#E61F12</color>
 
@@ -21,5 +24,7 @@
     <color name="white">#FFFFFF</color>
     <color name="green">#1ef22a</color>
     <color name="black">#000000</color>
+    <color name="silver">#EEECEC</color>
+    <color name="lightgreen">#6dff6d</color>
 
 </resources>

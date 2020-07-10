@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.SimpleItemAnimator;
 
 import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -39,6 +40,7 @@ public class MyAddressesActivity extends AppCompatActivity {
     private Button deliverHereBtn;
     private static AddressesAdapter addressesAdapter;
     private Dialog loadingDialog;
+    private int mode;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +59,12 @@ public class MyAddressesActivity extends AppCompatActivity {
         loadingDialog.setCancelable(false);
         loadingDialog.getWindow().setBackgroundDrawable(this.getDrawable(R.drawable.slider_background));
         loadingDialog.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);//dialog widh and height
+        loadingDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
+            @Override
+            public void onDismiss(DialogInterface dialog) {
+                addressesSaved.setText(String.valueOf(DBqueries.addressesModelList.size())+" saved addresses");
+            }
+        });
 
 
         /////loadingDialog
@@ -73,7 +81,7 @@ public class MyAddressesActivity extends AppCompatActivity {
 
 
 
-        int mode = getIntent().getIntExtra("MODE",-1);
+        mode = getIntent().getIntExtra("MODE",-1);
         if(mode == SELECT_ADDRESS){
             deliverHereBtn.setVisibility(View.VISIBLE);
         }else{
@@ -117,7 +125,7 @@ public class MyAddressesActivity extends AppCompatActivity {
             }
         });
 
-        addressesAdapter = new AddressesAdapter(DBqueries.addressesModelList,mode);
+        addressesAdapter = new AddressesAdapter(DBqueries.addressesModelList,mode,loadingDialog);
         myAddressesRecyclerView.setAdapter(addressesAdapter);
         ((SimpleItemAnimator)myAddressesRecyclerView.getItemAnimator()).setSupportsChangeAnimations(false); //disablin the animation on the check mark//
         addressesAdapter.notifyDataSetChanged();
@@ -126,7 +134,11 @@ public class MyAddressesActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent addAddressIntent = new Intent(MyAddressesActivity.this,AddAddressActivity.class);
-                addAddressIntent.putExtra("INTENT","null");
+                if (mode != SELECT_ADDRESS){
+                    addAddressIntent.putExtra("INTENT","manage");
+                }else {
+                    addAddressIntent.putExtra("INTENT", "null");
+                }
                 startActivity(addAddressIntent);
             }
         });
@@ -147,24 +159,28 @@ public class MyAddressesActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == android.R.id.home){
-            if (DBqueries.selectedAddress != previousAddress){
-                DBqueries.addressesModelList.get(DBqueries.selectedAddress).setSelected(false);
-                DBqueries.addressesModelList.get(previousAddress).setSelected(true);
-                DBqueries.selectedAddress = previousAddress;
+        if (item.getItemId() == android.R.id.home) {
+            if (mode == SELECT_ADDRESS) {
+                if (DBqueries.selectedAddress != previousAddress) {
+                    DBqueries.addressesModelList.get(DBqueries.selectedAddress).setSelected(false);
+                    DBqueries.addressesModelList.get(previousAddress).setSelected(true);
+                    DBqueries.selectedAddress = previousAddress;
+                }
+                finish();
+                return true;
             }
-            finish();
-            return true;
         }
         return super.onOptionsItemSelected(item);
     }
 
     @Override
     public void onBackPressed() {
-        if (DBqueries.selectedAddress != previousAddress){
-            DBqueries.addressesModelList.get(DBqueries.selectedAddress).setSelected(false);
-            DBqueries.addressesModelList.get(previousAddress).setSelected(true);
-            DBqueries.selectedAddress = previousAddress;
+        if (mode == SELECT_ADDRESS) {
+            if (DBqueries.selectedAddress != previousAddress) {
+                DBqueries.addressesModelList.get(DBqueries.selectedAddress).setSelected(false);
+                DBqueries.addressesModelList.get(previousAddress).setSelected(true);
+                DBqueries.selectedAddress = previousAddress;
+            }
         }
         super.onBackPressed();
     }

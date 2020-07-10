@@ -72,6 +72,8 @@ public class SignUpFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        getActivity().getWindow().setStatusBarColor(this.getResources().getColor(R.color.white));
+
         View view= inflater.inflate(R.layout.fragment_sign_up, container, false);
 
         alreadyHaveAnAccount = view.findViewById(R.id.tv_already_have_an_account);
@@ -259,6 +261,8 @@ public class SignUpFragment extends Fragment {
 
                                     Map <String,Object> userdata = new HashMap<>();
                                     userdata.put("fullname",fullName.getText().toString());
+                                    userdata.put("email",email.getText().toString());
+                                    userdata.put("profile","");
 
                                     firebaseFirestore.collection("USERS").document(firebaseAuth.getUid())
                                             .set(userdata)

@@ -2,11 +2,10 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:elevation="3dp"
-    android:background="@color/white"
     android:id="@+id/product_images_viewpager"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:elevation="3dp"
     android:orientation="vertical">
 
     <androidx.viewpager.widget.ViewPager
@@ -22,33 +21,35 @@
         android:id="@+id/viewpager_indicator"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:tabBackground="@drawable/dot_selector"
-        app:tabIndicatorHeight="0dp"
-        app:tabRippleColor="@null"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/viewPager"/>
+        app:layout_constraintTop_toBottomOf="@+id/viewPager"
+        app:tabBackground="@drawable/dot_selector"
+        app:tabIndicatorHeight="0dp"
+        app:tabRippleColor="@null" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/add_to_wishlist_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        app:rippleColor="@color/baby"
         android:layout_marginEnd="8dp"
         android:clickable="true"
-        android:tint="@color/white"
+        android:tint="@color/baby"
+        android:backgroundTint="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:rippleColor="@color/baby"
         app:srcCompat="@drawable/ic_wish_hollow" />
 
     <TextView
-        android:id="@+id/product_price"
+        android:id="@+id/product_title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-
+        android:layout_marginRight="16dp"
+        android:fontFamily="sans-serif-smallcaps"
         android:text="Product Title"
         android:textColor="#000000"
         android:textSize="20sp"
@@ -67,7 +68,7 @@
         android:orientation="horizontal"
         android:padding="1dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/product_price">
+        app:layout_constraintTop_toBottomOf="@+id/product_title">
 
         <TextView
             android:id="@+id/tv_product_rating_miniview"
@@ -85,8 +86,8 @@
             android:layout_gravity="center"
             android:layout_marginStart="2dp"
             android:layout_marginEnd="2dp"
-            android:src="@drawable/atar"
-            android:tint="@color/white" />
+            android:src="@drawable/utar"
+             />
 
     </LinearLayout>
 
@@ -108,8 +109,8 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:text="Rs.700/-"
-        android:textSize="24sp"
         android:textColor="#000000"
+        android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
@@ -136,12 +137,12 @@
     <LinearLayout
         android:id="@+id/coupon_redemption_layout"
         android:layout_width="0dp"
-        android:background="@color/orange"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        android:background="#67EFC8"
+        android:gravity="right"
         android:orientation="horizontal"
         android:padding="16dp"
-        android:gravity="right"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -153,8 +154,9 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Cost After Coupon Redemption"
+            android:fontFamily="sans-serif-smallcaps"
             android:textAlignment="center"
-            android:textColor="@color/white" />
+            android:textColor="@color/black" />
 
         <Button
             android:id="@+id/coupon_redemption_btn"
@@ -162,7 +164,7 @@
             android:layout_height="30dp"
             android:background="@drawable/border_background"
             android:text="Redeem"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="12sp" />
     </LinearLayout>
 

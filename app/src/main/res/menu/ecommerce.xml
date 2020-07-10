@@ -6,17 +6,20 @@
         android:orderInCategory="100"
         android:icon="@drawable/ic_search_hollow"
         android:title="search"
+        android:iconTint="@color/black"
         app:showAsAction="always" />
     <item
         android:id="@+id/main_notify_icon"
         android:orderInCategory="100"
         android:title="search"
+        android:iconTint="@color/black"
         android:icon="@drawable/ic_notify_hollow"
         app:showAsAction="always" />
     <item
         android:id="@+id/main_cart_icon"
         android:title="search"
         android:orderInCategory="100"
+        android:iconTint="@color/black"
         android:icon="@drawable/ic_dope_hollow"
         app:showAsAction="always" />
 </menu>

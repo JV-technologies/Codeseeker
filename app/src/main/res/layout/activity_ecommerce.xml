@@ -18,8 +18,11 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
+
         android:fitsSystemWindows="true"
         app:headerLayout="@layout/nav_header_ecommerce"
-        app:menu="@menu/activity_ecommerce_drawer" />
+        app:itemIconTint="@color/black"
+        app:menu="@menu/activity_ecommerce_drawer"
+        />
 
 </androidx.drawerlayout.widget.DrawerLayout>

@@ -7,6 +7,7 @@
         android:orderInCategory="100"
         android:icon="@drawable/ic_search_hollow"
         android:title="search"
+        android:iconTint="@color/black"
         app:showAsAction="always" />
 
     <item

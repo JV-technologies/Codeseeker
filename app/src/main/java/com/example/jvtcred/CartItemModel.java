@@ -37,7 +37,9 @@ public class CartItemModel  {
     private String discountedPrice;
 
 
-    public CartItemModel(int type,String productID, String productImage, String productTitle, Long freeCoupens, String productPrice, String cuttedPrice, Long productQuantity, Long offersApplied, Long coupensApplied,boolean inStock,Long maxQuantity,Long stockQuantity ) {
+
+
+    public CartItemModel(int type, String productID, String productImage, String productTitle, Long freeCoupens, String productPrice, String cuttedPrice, Long productQuantity, Long offersApplied, Long coupensApplied, boolean inStock, Long maxQuantity, Long stockQuantity ) {
         this.type = type;
         this.productID=productID;
         this.productImage = productImage;
@@ -53,6 +55,7 @@ public class CartItemModel  {
         this.inStock = inStock;
         qtyIDs = new ArrayList<>();
         qtyError = false;
+
     }
 
 

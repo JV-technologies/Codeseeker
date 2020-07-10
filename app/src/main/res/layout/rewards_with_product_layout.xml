@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/reward_layout"
     android:layout_width="match_parent"
-    android:background="@drawable/reward_gradient_background"
+    android:background="@color/white"
     android:layout_height="wrap_content"
     android:layout_marginTop="4dp"
     android:layout_marginBottom="4dp"
@@ -17,12 +17,11 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:tint="@color/white"
+        android:tint="@color/black"
         android:padding="0dp"
         app:layout_constraintEnd_toStartOf="@+id/reward_title"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/reward" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 
     <TextView
@@ -32,8 +31,9 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
-        android:text="sign up for rewards get 100 points for"
-        android:textColor="@color/white"
+        android:text="Sign up for rewards get 100 points for"
+        android:textColor="@color/black"
+        android:fontFamily="sans-serif-smallcaps"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -49,10 +49,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:fontFamily="@font/bungee_shade"
         android:layout_marginEnd="240dp"
         android:layout_marginRight="240dp"
         android:text="Title"
-        android:textColor="@color/white"
+        android:textColor="@color/colorAccent"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"

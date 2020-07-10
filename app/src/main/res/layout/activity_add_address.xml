@@ -19,7 +19,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="@color/orange"
+            android:background="@color/white"
             app:popupTheme="@style/AppTheme.PopupOverlay" />
 
     </com.google.android.material.appbar.AppBarLayout>
@@ -31,6 +31,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        android:background="@color/silver"
         app:layout_constraintTop_toBottomOf="@+id/appBarLayout2">
 
         <LinearLayout
@@ -53,40 +54,48 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
+                android:background="@drawable/edit_text_border"
                 android:ems="10"
+                android:fontFamily="@font/oxygen"
+
                 android:hint="City*"
                 android:inputType="textPersonName"
-                android:textColor="@color/colorAccent"/>
+                android:textColor="#000000" />
 
             <EditText
                 android:id="@+id/locality"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
                 android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:backgroundTint="@color/black"
                 android:ems="10"
+                android:fontFamily="@font/oxygen"
                 android:gravity="start"
-                android:isScrollContainer="true"
                 android:hint="Locality,area or street*"
                 android:inputType="textMultiLine"
+                android:isScrollContainer="true"
                 android:lines="3"
-                android:textColor="@color/colorAccent"/>
+                android:textColor="@color/black" />
 
             <EditText
                 android:id="@+id/flat_no"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
                 android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:backgroundTint="@color/black"
                 android:ems="10"
+                android:fontFamily="@font/oxygen"
                 android:gravity="start"
-                android:isScrollContainer="true"
                 android:hint="Flat no.,building name*"
                 android:inputType="textMultiLine"
+
+                android:isScrollContainer="true"
                 android:lines="3"
-                android:textColor="@color/colorAccent"/>
+                android:textColor="@color/black" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -103,9 +112,13 @@
                     android:layout_marginEnd="8dp"
                     android:layout_marginRight="8dp"
                     android:layout_weight="1"
+                    android:background="@drawable/edit_text_border"
+                    android:fontFamily="@font/oxygen"
                     android:hint="Pincode*"
+
+
                     android:inputType="number"
-                    android:textColor="@color/colorAccent" />
+                    android:textColor="@color/black" />
 
                 <androidx.appcompat.widget.AppCompatSpinner
                     android:id="@+id/state_spinner"
@@ -128,13 +141,16 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginLeft="16dp"
+                android:layout_marginTop="8dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginRight="16dp"
-                android:layout_marginTop="8dp"
                 android:layout_weight="1"
-                android:hint="Landmark(Optional"
+                android:background="@drawable/edit_text_border"
+                android:fontFamily="@font/oxygen"
+
+                android:hint="Landmark(Optional)"
                 android:inputType="textPersonName"
-                android:textColor="@color/colorAccent" />
+                android:textColor="@color/black" />
 
             <View
                 android:id="@+id/divider6"
@@ -152,13 +168,16 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginLeft="16dp"
+                android:layout_marginTop="8dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginRight="16dp"
-                android:layout_marginTop="8dp"
                 android:layout_weight="1"
+                android:background="@drawable/edit_text_border"
+                android:fontFamily="@font/oxygen"
                 android:hint="Name*"
                 android:inputType="textPersonName"
-                android:textColor="@color/colorAccent" />
+
+                android:textColor="@color/black" />
 
             <EditText
                 android:id="@+id/mobile_no"
@@ -166,13 +185,16 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginLeft="16dp"
+                android:layout_marginTop="8dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginRight="16dp"
-                android:layout_marginTop="8dp"
                 android:layout_weight="1"
+                android:background="@drawable/edit_text_border"
+                android:fontFamily="@font/oxygen"
                 android:hint="Mobile no.*"
                 android:inputType="number"
-                android:textColor="@color/colorAccent" />
+
+                android:textColor="@color/black" />
 
             <EditText
                 android:id="@+id/alternate_mobile_no"
@@ -180,22 +202,26 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginLeft="16dp"
+                android:layout_marginTop="8dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginRight="16dp"
                 android:layout_weight="1"
-                android:layout_marginTop="8dp"
+                android:background="@drawable/edit_text_border"
+                android:fontFamily="@font/oxygen"
                 android:hint="Alternate mobile no.(Optional)"
                 android:inputType="number"
-                android:textColor="@color/colorAccent" />
+
+                android:textColor="@color/black" />
 
             <Button
                 android:id="@+id/save_btn"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_margin="16dp"
-                android:backgroundTint="@color/orange"
-                android:text="Save"
-                android:textColor="#000000" />
+                android:backgroundTint="@color/lightgreen"
+                android:fontFamily="@font/average"
+                android:text="Save Details"
+                android:textColor="@color/white" />
 
         </LinearLayout>
     </ScrollView>

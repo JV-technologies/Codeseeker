@@ -101,8 +101,8 @@ public class CartAdapter extends RecyclerView.Adapter {
                 long stockQty = cartItemModelList.get(position).getStockQuantity();
 
 
-                ((CartItemViewHolder) viewHolder).setItemDetails(productID, resource, title, freeCoupens, productPrice, cuttedPrice, offersApplied, position, inStock, String.valueOf(productQuantity), maxQuantity, qtyError, qtyIds, stockQty);
 
+                ((CartItemViewHolder) viewHolder).setItemDetails(productID, resource, title, freeCoupens, productPrice, cuttedPrice, offersApplied, position, inStock, String.valueOf(productQuantity), maxQuantity, qtyError, qtyIds, stockQty);
                 break;
             case CartItemModel.TOTAL_AMOUNT:
                 int totalItems = 0;
@@ -225,6 +225,9 @@ public class CartAdapter extends RecyclerView.Adapter {
             checkCoupenPriceDialog.setContentView(R.layout.coupen_redeem_dialog);
             checkCoupenPriceDialog.setCancelable(false);
             checkCoupenPriceDialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+
+
+
 
 
             if (inStock) {

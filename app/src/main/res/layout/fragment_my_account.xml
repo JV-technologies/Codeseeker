@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     tools:context=".MyAccountFragment">
 
     <androidx.core.widget.NestedScrollView
@@ -10,27 +11,31 @@
         android:layout_height="match_parent">
 
         <LinearLayout
+            android:id="@+id/layout_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
-            <include layout="@layout/profile_data_layout"/>
-            <include layout="@layout/order_status_layout"/>
-            <include layout="@layout/your_recent_orders_layout"/>
-            <include layout="@layout/my_addresses_layout"/>
+            <include layout="@layout/profile_data_layout" />
+
+            <include layout="@layout/order_status_layout" />
+
+            <include layout="@layout/your_recent_orders_layout" />
+
+            <include layout="@layout/my_addresses_layout" />
 
             <Button
                 android:id="@+id/sign_out_btn"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:background="@color/orange"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginBottom="16dp"
+                android:background="@color/lightgreen"
+                android:text="SIGN OUT"
+                android:textColor="@color/white"
                 android:textSize="14sp"
-                android:textColor="#000000"
-                android:textStyle="bold"
-                android:text="SIGN OUT"/>
+                android:textStyle="bold" />
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 </FrameLayout>

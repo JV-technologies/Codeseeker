@@ -13,11 +13,14 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -126,6 +129,15 @@ public class ProductDetailsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product_details);
+
+        if(Build.VERSION.SDK_INT>=21){
+            Window window = this.getWindow();
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            window.setStatusBarColor(this.getResources().getColor(R.color.white));
+        }
+
+
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
@@ -138,7 +150,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
         productDetailsTabLayout = findViewById(R.id.product_details_tabLayout);
         buyNowBtn = findViewById(R.id.buy_now_btn);
         coupenRedeemBtn = findViewById(R.id.coupon_redemption_btn);
-        productTitle = findViewById(R.id.product_price);
+        productTitle = findViewById(R.id.product_title);
         averageRatingMiniView = findViewById(R.id.tv_product_rating_miniview);
         totalRatingMiniView = findViewById(R.id.total_ratings_miniview);
         productPrice = findViewById(R.id.product_price);
@@ -545,6 +557,8 @@ public class ProductDetailsActivity extends AppCompatActivity {
                                     @Override
                                     public void onComplete(@NonNull Task<Void> task) {
                                         if (task.isSuccessful()) {
+
+
                                             Map<String, Object> myRating = new HashMap<>();
                                             if (DBqueries.myRatedIds.contains("productID")) {
 
@@ -667,7 +681,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
 
 
                     if (DBqueries.addressesModelList.size() == 0) {
-                        DBqueries.loadAddresses(ProductDetailsActivity.this, loadingDialog);
+                        DBqueries.loadAddresses(ProductDetailsActivity.this, loadingDialog,true);
                     } else {
                         loadingDialog.dismiss();
                         Intent deliveryIntent = new Intent(ProductDetailsActivity.this, DeliveryActivity.class);

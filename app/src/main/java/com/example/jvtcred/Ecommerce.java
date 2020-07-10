@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 
 import android.view.MenuItem;
@@ -20,10 +21,16 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import androidx.drawerlayout.widget.DrawerLayout;
 
@@ -38,9 +45,12 @@ import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import org.w3c.dom.Text;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 import static com.example.jvtcred.RegisterActivity.setSignUpFragment;
 
@@ -72,12 +82,24 @@ public class Ecommerce extends AppCompatActivity implements NavigationView.OnNav
     public static DrawerLayout drawer;
     private FirebaseUser currentUser;
     private TextView badgeCount;
+    private CircleImageView profileView;
+    private TextView fullname,email;
+    private ImageView addProfileIcon;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ecommerce);
+
+        if(Build.VERSION.SDK_INT>=21){
+            Window window = this.getWindow();
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            window.setStatusBarColor(this.getResources().getColor(R.color.white));
+        }
+
+
         toolbar = findViewById(R.id.toolbar);
         actionBarLogo = findViewById(R.id.actionbar_logo);
         setSupportActionBar(toolbar);
@@ -96,6 +118,12 @@ public class Ecommerce extends AppCompatActivity implements NavigationView.OnNav
 
 
         frameLayout = findViewById(R.id.main_framelayout);
+
+        profileView = navigationView.getHeaderView(0).findViewById(R.id.main_profile_image);
+        fullname = navigationView.getHeaderView(0).findViewById(R.id.main_fullname);
+        email = navigationView.getHeaderView(0).findViewById(R.id.main_email);
+        addProfileIcon = navigationView.getHeaderView(0).findViewById(R.id.add_profile_icon);
+
         if (showCart) {
             mainActivity = this;
             drawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);  //0 means unlock 1 means lock
@@ -168,6 +196,33 @@ public class Ecommerce extends AppCompatActivity implements NavigationView.OnNav
         if (currentUser == null) {
             navigationView.getMenu().getItem(navigationView.getMenu().size() - 1).setEnabled(false);
         } else {
+            FirebaseFirestore.getInstance().collection("USERS").document(currentUser.getUid())
+                    .get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                    if (task.isSuccessful()){
+                        DBqueries.fullname = task.getResult().getString("fullname");
+                        DBqueries.email = task.getResult().getString("email");
+                        DBqueries.profile = task.getResult().getString("profile");
+
+                        fullname.setText(DBqueries.fullname);
+                        email.setText(DBqueries.email);
+                        if (DBqueries.profile.equals("")){
+                            addProfileIcon.setVisibility(View.VISIBLE);
+                        }else {
+                            addProfileIcon.setVisibility(View.INVISIBLE);
+                            Glide.with(Ecommerce.this).load(DBqueries.profile).apply(new RequestOptions().placeholder(R.drawable.ic_anu_hollow)).into(profileView);
+                        }
+
+
+
+                    }else{
+                        String error = task.getException().getMessage();
+                        Toast.makeText(Ecommerce.this,"error",Toast.LENGTH_SHORT).show();
+                    }
+
+                }
+            });
             navigationView.getMenu().getItem(navigationView.getMenu().size() - 1).setEnabled(true);
         }
         if (resetMainActivity){

@@ -36,6 +36,8 @@ public class MyRewardsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        getActivity().getWindow().setStatusBarColor(this.getResources().getColor(R.color.white));
+
         View view= inflater.inflate(R.layout.fragment_my_rewards, container, false);
 
         //////loadingDialog

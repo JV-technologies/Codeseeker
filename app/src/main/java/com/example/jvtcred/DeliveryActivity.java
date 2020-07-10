@@ -167,6 +167,7 @@ public class DeliveryActivity extends AppCompatActivity {
                     if (cartItemModel.isQtyError()){
                         allProductsAvailabe = false;
                     }
+
                 }
 
                 if (allProductsAvailabe){
@@ -295,10 +296,30 @@ public class DeliveryActivity extends AppCompatActivity {
         ///accessing quantity
 
 
-        name = DBqueries.addressesModelList.get(DBqueries.selectedAddress).getFullname();
+        name = DBqueries.addressesModelList.get(DBqueries.selectedAddress).getName();
         mobileNo = DBqueries.addressesModelList.get(DBqueries.selectedAddress).getMobileNo();
-        fullname.setText(name + " - " + mobileNo);
-        fullAddress.setText(DBqueries.addressesModelList.get(DBqueries.selectedAddress).getAddress());
+        if (DBqueries.addressesModelList.get(DBqueries.selectedAddress).getAlternateMobileNo().equals("")) {
+            fullname.setText(name + " - " + mobileNo);
+        }else{
+            fullname.setText(name + " - " + mobileNo + " or " + DBqueries.addressesModelList.get(DBqueries.selectedAddress).getAlternateMobileNo());
+        }
+
+        String flatNo = DBqueries.addressesModelList.get(DBqueries.selectedAddress).getFlatNo();
+        String locality = DBqueries.addressesModelList.get(DBqueries.selectedAddress).getLocality();
+        String landmark = DBqueries.addressesModelList.get(DBqueries.selectedAddress).getLandmark();
+        String city = DBqueries.addressesModelList.get(DBqueries.selectedAddress).getCity();
+        String state = DBqueries.addressesModelList.get(DBqueries.selectedAddress).getState();
+
+
+
+        if (landmark.equals("")){
+
+            fullAddress.setText(flatNo +" "+ locality +" "+ city +" " + state);
+
+        }else{
+            fullAddress.setText(flatNo +" "+ locality +" "+ landmark +" "+ city +" " + state);
+        }
+
         pincode.setText(DBqueries.addressesModelList.get(DBqueries.selectedAddress).getPincode());
 
         if (codOrderConfirmed) {
@@ -527,6 +548,7 @@ public class DeliveryActivity extends AppCompatActivity {
                 orderDetails.put("FullName",fullname.getText());
                 orderDetails.put("Pincode",pincode.getText());
                 orderDetails.put("Free Coupens",cartItemModel.getFreeCoupens());
+                orderDetails.put("Cancellation requested",false);
 
 
 
@@ -633,6 +655,7 @@ public class DeliveryActivity extends AppCompatActivity {
                                                             if (task.isSuccessful()){
                                                                 Map<String,Object> userOrder = new HashMap<>();
                                                                 userOrder.put("order_id",order_id);
+                                                                userOrder.put("time",FieldValue.serverTimestamp());
                                                                 firebaseFirestore.collection("USERS").document(FirebaseAuth.getInstance().getUid()).collection("USER_ORDERS").document(order_id).set(userOrder)
                                                                         .addOnCompleteListener(new OnCompleteListener<Void>() {
                                                                             @Override

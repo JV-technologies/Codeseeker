@@ -46,6 +46,8 @@ public class MyCartFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        getActivity().getWindow().setStatusBarColor(this.getResources().getColor(R.color.white));
+
         View view = inflater.inflate(R.layout.fragment_my_cart, container, false);
 
         //////loadingDialog
@@ -91,7 +93,7 @@ public class MyCartFragment extends Fragment {
 
                 loadingDialog.show();
                 if(DBqueries.addressesModelList.size() == 0){
-                DBqueries.loadAddresses(getContext(), loadingDialog);
+                DBqueries.loadAddresses(getContext(), loadingDialog,true);
                 }else {
                     loadingDialog.dismiss();
                     Intent deliveryIntent = new Intent(getContext(), DeliveryActivity.class);

@@ -16,10 +16,10 @@
         android:layout_height="25dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:tint="@color/white"
+        android:tint="@color/headings"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/reward" />
+         />
 
     <TextView
         android:id="@+id/coupen_title"
@@ -27,9 +27,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:padding="3dp"
+        android:fontFamily="@font/bungee_shade"
         android:text="Discount coupon"
-        android:textColor="@color/white"
-        android:textSize="16sp"
+        android:textColor="@color/colorAccent"
+        android:textSize="10sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/coupen_icon"
@@ -58,7 +59,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         android:text="Get 20% off on any course above Rs.500/- and below Rs. 2500/-"
-        android:textColor="@color/white"
+        android:textColor="@color/headings"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
